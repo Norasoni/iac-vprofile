@@ -2,8 +2,7 @@ name: "Vprofile IAC"
 on:
   push:
     branches:
-      - main
-      - stage
+      - "**"
     paths:
       - terraform/**
   pull_request:
@@ -31,8 +30,9 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
       
-      - name: Setup Terraform with specified version on the runner
-        uses: hashicorp/setup-terraform@v3
+      - name: HashiCorp - Setup Terraform
+        uses: hashicorp/setup-terraform@v3.1.1
+            
       
       - name: Terraform init
         id: init
